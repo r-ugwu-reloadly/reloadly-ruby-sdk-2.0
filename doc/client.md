@@ -1,0 +1,55 @@
+
+# Client Class Documentation
+
+The following parameters are configurable for the API Client:
+
+| Parameter | Type | Description |
+|  --- | --- | --- |
+| `environment` | Environment | The API environment. <br> **Default: `Environment.PRODUCTION`** |
+| `connection` | `Faraday::Connection` | The Faraday connection object passed by the SDK user for making requests |
+| `adapter` | `Faraday::Adapter` | The Faraday adapter object passed by the SDK user for performing http requests |
+| `timeout` | `Float` | The value to use for connection timeout. <br> **Default: 60** |
+| `max_retries` | `Integer` | The number of times to retry an endpoint call if it fails. <br> **Default: 0** |
+| `retry_interval` | `Float` | Pause in seconds between retries. <br> **Default: 1** |
+| `backoff_factor` | `Float` | The amount to multiply each successive retry's interval amount by in order to provide backoff. <br> **Default: 2** |
+| `retry_statuses` | `Array` | A list of HTTP statuses to retry. <br> **Default: [408, 413, 429, 500, 502, 503, 504, 521, 522, 524]** |
+| `retry_methods` | `Array` | A list of HTTP methods to retry. <br> **Default: %i[get put]** |
+
+The API client can be initialized as follows:
+
+```ruby
+client = ReloadlySdk::Client.new(
+  environment: Environment::PRODUCTION,
+)
+```
+
+## reloadly-sdk Client
+
+The gateway for the SDK. This class acts as a factory for the Controllers and also holds the configuration of the SDK.
+
+## Controllers
+
+| Name | Description |
+|  --- | --- |
+| authentication | Gets AuthenticationController |
+| airtime_account_balance | Gets AirtimeAccountBalanceController |
+| airtime_countries | Gets AirtimeCountriesController |
+| airtime_operators | Gets AirtimeOperatorsController |
+| airtime_fx_rates | Gets AirtimeFXRatesController |
+| airtime_commissions | Gets AirtimeCommissionsController |
+| airtime_promotions | Gets AirtimePromotionsController |
+| airtime_topups | Gets AirtimeTopupsController |
+| airtime_transactions | Gets AirtimeTransactionsController |
+| gift_cards_account_balance | Gets GiftCardsAccountBalanceController |
+| gift_cards_countries | Gets GiftCardsCountriesController |
+| gift_cards_products | Gets GiftCardsProductsController |
+| gift_cards_redeem_instructions | Gets GiftCardsRedeemInstructionsController |
+| gift_cards_discounts | Gets GiftCardsDiscountsController |
+| gift_cards_transactions | Gets GiftCardsTransactionsController |
+| gift_cards_orders | Gets GiftCardsOrdersController |
+| airtime_number_lookup | Gets AirtimeNumberLookupController |
+| utility_payments_account_balance | Gets UtilityPaymentsAccountBalanceController |
+| utility_payments_utility_billers | Gets UtilityPaymentsUtilityBillersController |
+| utility_payments_pay_bill | Gets UtilityPaymentsPayBillController |
+| utility_payments_transactions | Gets UtilityPaymentsTransactionsController |
+
